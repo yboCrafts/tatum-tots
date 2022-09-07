@@ -1,9 +1,10 @@
 const app = {
-    init: function(formSelector) {
+    init: function(selectors) {
         this.max = 0
+        this.list = document.querySelector(selectors.listSelector)
 
         document
-        .querySelector('#flickForm')
+        .querySelector(selectors.formSelector)
         .addEventListener('submit', ev => {
             ev.preventDefault()
             this.handleSubmit(ev)            
@@ -21,4 +22,7 @@ const app = {
     },
 }
 
-app.init('#flickForm')
+app.init({
+    formSelector: '#flickForm',
+    listSelector: '#flickList'    
+})
