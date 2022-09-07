@@ -11,14 +11,23 @@ const app = {
         })
     },
 
+    renderListItem: function(flick) {
+        const item = document.createElement('li')
+        item.textContent = flick.name
+        return item
+    },
+
     handleSubmit: function(ev) {        
         const f = ev.target;   
         const flick = {
             id: ++this.max,
             name: f.flickName.value,
         }
-        console.log(flick)
-        f.reset()
+
+        const item = this.renderListItem(flick)
+        this.list.appendChild(item)
+
+        f.reset()        
     },
 }
 
